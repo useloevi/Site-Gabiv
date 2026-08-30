@@ -25,7 +25,11 @@ export default function Landpage() {
       />
 
       {/* Header: troca ESCURO <-> CLARO no hover, só em CSS */}
-      <div className="landpage__header-hitbox">
+      <div
+        className={`landpage__header-hitbox${
+          menuOpen ? " landpage__header-hitbox--menu-open" : ""
+        }`}
+      >
         {/* header ESCURO — visível por padrão */}
         <div className="header header--escuro">
           <div className="header__icon-btn header__icon-btn--left">
@@ -106,7 +110,7 @@ export default function Landpage() {
           {menuOpen && (
             <nav className="header__menu">
               {MENU_ITEMS.map((item) => (
-                <a
+                
                   key={item}
                   href="#"
                   className="header__menu-link"
