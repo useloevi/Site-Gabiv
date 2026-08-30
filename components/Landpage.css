@@ -48,6 +48,19 @@
   pointer-events: auto;
 }
 
+.landpage__header-hitbox--menu-open {
+  height: 320px; /* cobre o header (120px) + o painel do menu abaixo */
+}
+
+.landpage__header-hitbox--menu-open .header--claro {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.landpage__header-hitbox--menu-open .header--escuro {
+  opacity: 0;
+}
+
 .header__overlay-bg {
   position: absolute;
   inset: 0;
