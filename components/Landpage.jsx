@@ -111,14 +111,14 @@ export default function Landpage() {
             <nav className="header__menu">
               {MENU_ITEMS.map(function (item) {
                 return (
-                  
+                  <button
                     key={item}
-                    href="#"
+                    type="button"
                     className="header__menu-link"
                     onClick={() => setMenuOpen(false)}
                   >
                     {item}
-                  </a>
+                  </button>
                 );
               })}
             </nav>
