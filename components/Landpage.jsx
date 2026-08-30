@@ -107,20 +107,20 @@ export default function Landpage() {
             />
           </div>
 
-          {menuOpen && (
-            <nav className="header__menu">
-              {MENU_ITEMS.map((item) => (
-                
-                  key={item}
-                  href="#"
-                  className="header__menu-link"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {item}
-                </a>
-              ))}
-            </nav>
-          )}
+        {menuOpen && (
+  <nav className="header__menu">
+    {MENU_ITEMS.map((item) => (
+      
+        key={item}
+        href="#"
+        className="header__menu-link"
+        onClick={() => setMenuOpen(false)}
+      >
+        {item}
+      </a>
+    ))}
+  </nav>
+)}
         </div>
       </div>
 
