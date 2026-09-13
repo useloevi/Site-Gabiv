@@ -26,12 +26,30 @@
     --icon-left: 35px;
     --icon-right: 35px;
 
-    aspect-ratio: 1080 / 640; /* proporção do LANDPAGE-MOBILE */
+    /* preenche 100% da altura visível do celular (dvh já considera a
+       barra de endereço que aparece/some ao rolar) */
+    aspect-ratio: unset;
+    height: 100vh; /* fallback pra navegadores sem suporte a dvh */
+    height: 100dvh;
   }
 }
 
 .landpage__bg {
   z-index: 0;
+}
+
+.landpage__bg--mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .landpage__bg--desktop {
+    display: none;
+  }
+
+  .landpage__bg--mobile {
+    display: block;
+  }
 }
 
 /* ---------- Header (troca ESCURO <-> CLARO no hover) ---------- */
@@ -72,7 +90,6 @@
 }
 
 .landpage__header-hitbox--menu-open {
-  /* cobre o header + o painel do menu abaixo, em qualquer tamanho de tela */
   height: calc(var(--header-height) + 200px);
 }
 
