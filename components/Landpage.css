@@ -14,53 +14,12 @@
   background-color: #444; /* fallback enquanto Capa.jpg não é adicionada */
 }
 
-/* Abaixo de 768px: LANDPAGE-MOBILE entra em vigor — mesma posição
-   x/y dos ícones e da logo, só reduzidos a 50% do tamanho */
-@media (max-width: 768px) {
-  .landpage {
-    /* preenche 100% da altura visível do celular (dvh já considera a
-       barra de endereço que aparece/some ao rolar) */
-    aspect-ratio: unset;
-    height: 100vh; /* fallback pra navegadores sem suporte a dvh */
-    height: 100dvh;
-  }
-
-  .header__logo-frame {
-    transform: translateX(-50%) scale(0.5);
-  }
-
-  .header__icon-btn--left {
-    transform: scale(0.5);
-    transform-origin: top left;
-  }
-
-  .header__icon-btn--right {
-    transform: scale(0.5);
-    transform-origin: top right;
-  }
-}
-
 .landpage__bg {
   z-index: 0;
 }
 
 .landpage__bg-wrap--mobile {
   display: none;
-}
-
-@media (max-width: 768px) {
-  .landpage__bg--desktop {
-    display: none;
-  }
-
-  .landpage__bg-wrap--mobile {
-    display: block;
-    position: absolute;
-    top: -250px;
-    left: 0;
-    width: 100%;
-    height: calc(100% + 250px);
-  }
 }
 
 /* ---------- Header (troca ESCURO <-> CLARO no hover) ---------- */
@@ -220,9 +179,13 @@
   height: 40px;
 }
 
-@media (max-width: 640px) {
-  .landpage__eyebrow {
-    font-size: 16px;
-    white-space: normal;
-  }
-}
+/* ================================================================
+   MOBILE (max-width: 768px) — sempre por último no arquivo, pra
+   garantir que essas regras vençam as de cima na cascata do CSS.
+   ================================================================ */
+@media (max-width: 768px) {
+  .landpage {
+    /* preenche 100% da altura visível do celular (dvh já considera a
+       barra de endereço que aparece/some ao rolar) */
+    aspect-ratio: unset;
+    height: 100vh; /*
