@@ -23,16 +23,18 @@ export default function Landpage() {
         sizes="100vw"
         style={{ objectFit: "cover" }}
       />
-      <Image
-        className="landpage__bg landpage__bg--mobile"
-        src="/images/Capa_mobile.jpg"
-        alt=""
-        fill
-        quality={100}
-        priority
-        sizes="100vw"
-        style={{ objectFit: "cover" }}
-      />
+      <div className="landpage__bg-wrap--mobile">
+        <Image
+          className="landpage__bg landpage__bg--mobile"
+          src="/images/Capa_mobile.jpg"
+          alt=""
+          fill
+          quality={100}
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover" }}
+        />
+      </div>
 
       {/* Header: troca ESCURO <-> CLARO no hover, só em CSS */}
       <div
