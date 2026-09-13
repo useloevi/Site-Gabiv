@@ -12,10 +12,20 @@ export default function Landpage() {
 
   return (
     <section className="landpage">
-      {/* Fundo — Capa.jpg cobrindo toda a landing page */}
+      {/* Fundo — Capa.jpg (desktop) / Capa_mobile.jpg (celular) */}
       <Image
-        className="landpage__bg"
+        className="landpage__bg landpage__bg--desktop"
         src="/images/Capa.jpg"
+        alt=""
+        fill
+        quality={100}
+        priority
+        sizes="100vw"
+        style={{ objectFit: "cover" }}
+      />
+      <Image
+        className="landpage__bg landpage__bg--mobile"
+        src="/images/Capa_mobile.jpg"
         alt=""
         fill
         quality={100}
