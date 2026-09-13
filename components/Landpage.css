@@ -14,23 +14,29 @@
   background-color: #444; /* fallback enquanto Capa.jpg não é adicionada */
 }
 
-/* Abaixo de 768px: LANDPAGE-MOBILE entra em vigor — mesmas animações,
-   dimensões vindas do frame mobile do Figma */
+/* Abaixo de 768px: LANDPAGE-MOBILE entra em vigor — mesma posição
+   x/y dos ícones e da logo, só reduzidos a 50% do tamanho */
 @media (max-width: 768px) {
   .landpage {
-    --header-height: 104px;
-    --logo-w: 143px;
-    --logo-h: 104px;
-    --icon-size: 42px;
-    --icon-top: 31px;
-    --icon-left: 35px;
-    --icon-right: 35px;
-
     /* preenche 100% da altura visível do celular (dvh já considera a
        barra de endereço que aparece/some ao rolar) */
     aspect-ratio: unset;
     height: 100vh; /* fallback pra navegadores sem suporte a dvh */
     height: 100dvh;
+  }
+
+  .header__logo-frame {
+    transform: translateX(-50%) scale(0.5);
+  }
+
+  .header__icon-btn--left {
+    transform: scale(0.5);
+    transform-origin: top left;
+  }
+
+  .header__icon-btn--right {
+    transform: scale(0.5);
+    transform-origin: top right;
   }
 }
 
@@ -38,7 +44,7 @@
   z-index: 0;
 }
 
-.landpage__bg--mobile {
+.landpage__bg-wrap--mobile {
   display: none;
 }
 
@@ -47,8 +53,13 @@
     display: none;
   }
 
-  .landpage__bg--mobile {
+  .landpage__bg-wrap--mobile {
     display: block;
+    position: absolute;
+    top: -250px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 250px);
   }
 }
 
