@@ -1,10 +1,33 @@
 .landpage {
+  --header-height: 120px;
+  --logo-w: 164.63px;
+  --logo-h: 120px;
+  --icon-size: 42.86px;
+  --icon-top: 35.71px;
+  --icon-left: 50px;
+  --icon-right: 47.14px;
+
   position: relative;
   width: 100%;
-  height: 850px;
-  max-height: 100vh;
+  aspect-ratio: 1440 / 850; /* mesma proporção do Figma (LANDPAGE) */
   overflow: hidden;
   background-color: #444; /* fallback enquanto Capa.jpg não é adicionada */
+}
+
+/* Abaixo de 768px: LANDPAGE-MOBILE entra em vigor — mesmas animações,
+   dimensões vindas do frame mobile do Figma */
+@media (max-width: 768px) {
+  .landpage {
+    --header-height: 104px;
+    --logo-w: 143px;
+    --logo-h: 104px;
+    --icon-size: 42px;
+    --icon-top: 31px;
+    --icon-left: 35px;
+    --icon-right: 35px;
+
+    aspect-ratio: 1080 / 640; /* proporção do LANDPAGE-MOBILE */
+  }
 }
 
 .landpage__bg {
@@ -18,7 +41,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 120px;
+  height: var(--header-height);
   z-index: 10;
 }
 
@@ -49,7 +72,8 @@
 }
 
 .landpage__header-hitbox--menu-open {
-  height: 320px; /* cobre o header (120px) + o painel do menu abaixo */
+  /* cobre o header + o painel do menu abaixo, em qualquer tamanho de tela */
+  height: calc(var(--header-height) + 200px);
 }
 
 .landpage__header-hitbox--menu-open .header--claro {
@@ -73,23 +97,23 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 164.63px;
-  height: 120px;
+  width: var(--logo-w);
+  height: var(--logo-h);
 }
 
 .header__icon-btn {
   position: absolute;
-  top: 35.71px;
-  width: 42.86px;
-  height: 42.86px;
+  top: var(--icon-top);
+  width: var(--icon-size);
+  height: var(--icon-size);
 }
 
 .header__icon-btn--left {
-  left: 50px;
+  left: var(--icon-left);
 }
 
 .header__icon-btn--right {
-  right: 47.14px;
+  right: var(--icon-right);
 }
 
 .header__icon-btn--button {
@@ -102,8 +126,8 @@
 /* Painel do menu (aparece ao clicar no Burger_claro) */
 .header__menu {
   position: absolute;
-  top: 120px;
-  left: 50px;
+  top: var(--header-height);
+  left: var(--icon-left);
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -140,6 +164,9 @@
   gap: 12px;
   z-index: 5;
   text-align: center;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .landpage__eyebrow {
@@ -169,6 +196,5 @@
   .landpage__eyebrow {
     font-size: 16px;
     white-space: normal;
-    padding: 0 20px;
   }
 }
